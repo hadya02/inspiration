@@ -1,0 +1,14 @@
+
+ 
+Personal Information
+Write a program that displays the following information:
+• Your name
+•	 Your address, with city, state, and ZIP
+• Your telephone number
+• Your college major
+
+name="hadya"
+address="Dehbori"
+telephone_num="042374676"
+colleage_major="student"
+print("my name is",name,"\n my telephon number is",telephone_num,"\n my colleage major is",colleage_major)
