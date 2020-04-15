@@ -1,0 +1,32 @@
+from tkinter import*
+
+newroot = Tk()
+
+newroot.geometry("500x300")
+newroot.title("Menu")
+
+def enter1():
+	newroot.destroy()
+	import restaurant_management_system
+
+
+def enter2():
+	newroot.destroy()
+	import price	
+
+label = Label(newroot, font = ('arial',40,'bold'), text ="Home Page", fg = "blue", bd = 10, anchor = 'w')
+label.grid(row = 0,  column=0)
+
+label11 = Label(newroot, font = ('arial',13,'bold'), text="Bill")
+label11.grid(row=2, sticky=E)
+
+press_btn = Button(newroot,  font = ('arial',13,'bold'), bd= 7,  fg= "white", bg= "steel blue", text="Press Here", command= enter1)
+press_btn.grid(row=2, column=1)
+
+label21 = Label(newroot, font = ('arial',13,'bold'), text="Change Price")        
+label21.grid(row=3,sticky=E)
+
+press1_btn = Button(newroot,  font = ('arial',13,'bold'), bd= 7,  fg= "white", bg= "steel blue", text="Press Here", command= enter2)
+press1_btn.grid(row=3, column=1)
+
+newroot.mainloop()

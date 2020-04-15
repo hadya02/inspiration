@@ -1,0 +1,29 @@
+from tkinter import*
+root2 = Tk()
+root2.geometry("500x1000")
+root2.title("Group Members")
+
+def back():
+	root2.destroy()
+	import login
+
+
+btn_N= Button(root2, padx= 20, pady= 10, bd= 12,  fg= "white",font=('arial',35,'bold'), width=15, text= "Group Members", bg= "steel blue", command = open)
+btn_N.grid(row=1, column= 1)
+
+btn_F = Button(root2, padx= 20, pady= 10, bd= 12, fg= "black", font=('arial',16,'bold'), width=15, text= "Hadya Hamed",)
+btn_F.grid(row=2, column= 1)
+
+btn_Z = Button(root2, padx= 20, pady= 10, bd= 12, fg= "black", font=('arial',16,'bold'), width=15, text= "Zeeba Hoshmand",)
+btn_Z.grid(row=3, column= 1)
+
+	
+btn_H = Button(root2, padx= 20, pady= 10, bd= 12, fg= "black", font=('arial',16,'bold'), width=15, text= "Fatima Sarwari",)
+btn_H.grid(row=6, column= 1)
+
+btn_Y = Button(root2, padx= 20, pady= 10, bd= 12, fg= "black", font=('arial',16,'bold'), width=15, text= "Yalda Hashimi",)
+btn_Y.grid(row=7, column= 1)
+
+btn_B = Button(root2, padx= 10, bg= "steel blue", pady= 10, bd= 12, fg= "white", font=('arial',11,'bold'), width=10, text= "Back", command = back)
+btn_B.grid(row=8, column= 1)
+root2.mainloop()

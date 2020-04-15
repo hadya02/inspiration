@@ -1,0 +1,152 @@
+from tkinter import *
+import tkinter.messagebox
+
+left = Tk()
+left.geometry("700x800")
+left.title("Change Price")
+
+top = Frame(left, width=1600, height=50, relief=SUNKEN)
+top.pack(side=TOP)
+
+left1 = Frame(left, width=700, height=700, relief=SUNKEN)
+left1.pack(side=TOP)
+
+label4 = Label(top, font=('arial', 37, 'bold'), text="Change Price", fg="steel blue", bd=10,)
+label4.grid(row=0)
+
+Pizza_inp_p = StringVar()
+Chicken_wings_inp_p = StringVar()
+Fries_inp_p = StringVar()
+Salad_inp_p = StringVar()
+Drinks_inp_p = StringVar()
+
+
+def update():
+    f = open('value.txt', 'r')
+    line = f.readlines()
+    Pizza_p = float(line[0])
+    Chicken_wings_p = float(line[1])
+    Fries_p = float(line[2])
+    Salad_p = float(line[3])
+    Drinks_p = float(line[4])
+    f.close()
+
+    f2 = open('value.txt', 'w')
+    try:
+        COP1 = float(Pizza_inp_p.get())
+    except Exception as e:
+        if Pizza_inp_p.get() != "":
+            tkinter.messagebox.showinfo('Error', 'Incorrect Input')
+        Pizza_inp_p.set("")
+        f2.write(str(Pizza_p) + "\n")
+    else:
+        f2.write(str(COP1) + "\n")
+
+    try:
+        COC1 = float(Chicken_wings_inp_p.get())
+    except Exception as e:
+        if Chicken_wings_inp_p.get() != "":
+            tkinter.messagebox.showinfo('Error', 'Incorrect Input')
+        Chicken_wings_inp_p.set("")
+        f2.write(str(Chicken_wings_p) + "\n")
+    else:
+        f2.write(str(COC1) + "\n")
+
+    try:
+        COF1 = float(Fries_inp_p.get())
+    except Exception as e:
+        if Fries_inp_p.get() != "":
+            tkinter.messagebox.showinfo('Error', 'Incorrect Input')
+        Fries_inp_p.set("")
+        f2.write(str(Fries_p) + "\n")
+    else:
+        f2.write(str(COF1) + "\n")
+
+    try:
+        COS1 = float(Salad_inp_p.get())
+    except Exception as e:
+        if Salad_inp_p.get() != "":
+            tkinter.messagebox.showinfo('Error', 'Incorrect Input')
+        Salad_inp_p.set("")
+        f2.write(str(Salad_p) + "\n")
+    else:
+        f2.write(str(COS1) + "\n")
+
+    try:
+        COD1 = float(Drinks_inp_p.get())
+    except Exception as e:
+        if Drinks_inp_p.get() != "":
+            tkinter.messagebox.showinfo('Error', 'Incorrect Input')
+        Drinks_inp_p.set("")
+        f2.write(str(Drinks_p))
+    else:
+        f2.write(str(COD1))
+
+    # f.write(str(Sandwich_p) +"\n"+ str(Pasta_p) +"\n"+ str(Tacos_p) +"\n"+ str(fries_p) +"\n"+ str(burger_p) +"\n"+ str(drinks_p))
+
+    tkinter.messagebox.showinfo('Update Box', 'Successfully Updated')
+    f2.close()
+
+
+def reset1():
+    Pizza_inp_p.set("")
+    Chicken_wings_inp_p.set("")
+    Fries_inp_p.set("")
+    Salad_inp_p.set("")
+    Drinks_inp_p.set("")
+
+
+def qexit1():
+    left.destroy()
+
+
+def backfn():
+    left.destroy()
+    import question
+
+
+Pizza = Label(left1, font=('arial', 16, 'bold'), text="Pizza", bd=16, anchor='w')
+Pizza.grid(row=0, column=0, sticky=E)
+txt_Pizza = Entry(left1, font=('arial', 16, 'bold'), textvariable=Pizza_inp_p, bd=10, insertwidth=4, justify='right')
+txt_Pizza.grid(row=0, column=1)
+
+Chicken_wings = Label(left1, font=('arial', 16, 'bold'), text="Chicken_wings", bd=16, anchor='w')
+Chicken_wings.grid(row=2, column=0, sticky=E)
+txt_Chicken_wings = Entry(left1, font=('arial', 16, 'bold'), textvariable=Chicken_wings_inp_p, bd=10, insertwidth=4,
+                          justify='right')
+txt_Chicken_wings.grid(row=2, column=1)
+
+Fries = Label(left1, font=('arial', 16, 'bold'), text="Fries", bd=16, anchor='w')
+Fries.grid(row=3, column=0, sticky=E)
+txt_Fries = Entry(left1, font=('arial', 16, 'bold'), textvariable=Fries_inp_p, bd=10, insertwidth=4, justify='right')
+txt_Fries.grid(row=3, column=1)
+
+Salad = Label(left1, font=('arial', 16, 'bold'), text="Salad", bd=16, anchor='w')
+Salad.grid(row=4, column=0, sticky=E)
+txt_Salad = Entry(left1, font=('arial', 16, 'bold'), textvariable=Salad_inp_p, bd=10, insertwidth=4, justify='right')
+txt_Salad.grid(row=4, column=1)
+
+Drinks = Label(left1, font=('arial', 16, 'bold'), text="Drinks ", bd=16, anchor='w')
+Drinks.grid(row=5, column=0, sticky=E)
+txt_Drinks = Entry(left1, font=('arial', 16, 'bold'), textvariable=Drinks_inp_p, bd=10, insertwidth=4, justify='right')
+txt_Drinks.grid(row=5, column=1)
+
+btn_update = Button(left1, padx=10, pady=5, bd=16, fg="white", font=('arial', 16, 'bold'), width=8, text="Update",
+                    bg="steel blue", command=update)
+btn_update.grid(row=8, column=0)
+
+btn_reset1 = Button(left1, padx=10, pady=5, bd=16, fg="white", font=('arial', 16, 'bold'), width=8, text="Reset",
+                    bg="steel blue", command=reset1)
+btn_reset1.grid(row=8, column=1)
+
+btn_exit1 = Button(left1, padx=10, pady=5, bd=16, fg="white", font=('arial', 16, 'bold'), width=8, text="Exit",
+                   bg="steel blue", command=qexit1)
+btn_exit1.grid(row=9, column=0)
+
+
+
+btn_back = Button(left1, padx=10, pady=5, bd=16, fg="white", font=('arial', 16, 'bold'), width=8, text="Back",
+                  bg="steel blue", command=backfn)
+btn_back.grid(row=9, column=1)
+
+left1.mainloop()
